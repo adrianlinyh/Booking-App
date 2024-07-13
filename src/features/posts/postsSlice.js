@@ -155,11 +155,12 @@ export const dateBooking = createAsyncThunk(
     'posts/deleteBooking',
     async (bookingId) => {
       
-        await axios.delete(`${BASE_URL}/booking/${bookingId}`);
+        await axios.delete(`${BASE_URL}/bookings/${bookingId}`);
   
           return bookingId; // Return postId if deletion was successful
         } 
       )
+
 
 // Slice
 const postsSlice = createSlice({

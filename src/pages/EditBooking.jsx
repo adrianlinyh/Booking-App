@@ -3,15 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { jwtDecode } from 'jwt-decode';
 import { deleteBooking, fetchBookingsByUser } from '../features/posts/postsSlice';
 import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
-export default function EditBooking(bookingId) {
+export default function EditBooking() {
   const dispatch = useDispatch();
   const bookings = useSelector(state => state.posts.posts); // Adjust according to your state structure
   const loading = useSelector(state => state.posts.loading); // Loading state to handle loading indication
-
-  const handleDelete = () => {
-    dispatch(deleteBooking(bookingId)); // Dispatch deletePost action with postId
-  };
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
@@ -21,16 +19,18 @@ export default function EditBooking(bookingId) {
     dispatch(fetchBookingsByUser(userId)); // Fetch bookings data when component mounts
   }, [dispatch]);
   
-// //   const handleDelete = (bookingId) => {
-// //     dispatch(deleteBooking(bookingId));
-//   };
+  const handleDelete = (bookingId) => {
+  dispatch(deleteBooking(bookingId));
+  };
 
 
   if (loading) {
     return <p>Loading...</p>;
   }
 
-  
+  const handleNavigate = () => {
+    navigate('/profile')
+  }
 
 
 
@@ -44,7 +44,7 @@ export default function EditBooking(bookingId) {
               <p>Date: {booking.date}</p>
               <p>Time: {booking.time}</p>
               <p>Duration: {booking.duration} hours</p>
-              <Button onClick={handleDelete}>Delete</Button>
+              <Button onClick={() => handleDelete(booking.id)}>Delete</Button>
               <hr />
             </div>
           ))
@@ -52,7 +52,7 @@ export default function EditBooking(bookingId) {
           <p>No bookings found.</p>
         )}
       </div>
+      <Button onClick={handleNavigate}>Home</Button>
     </div>
   );
 }
-

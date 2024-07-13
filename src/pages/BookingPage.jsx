@@ -46,9 +46,6 @@ export default function BookingPage() {
     return (
         <Container>
             <h2>Booking Form</h2>
-            {/* <Box>
-                {content}
-            </Box> */}
             <Form>
                 <Form.Group controlId='booking'>        
                     <Form.Control
