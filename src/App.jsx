@@ -1,32 +1,23 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css'
-import AuthPage from './pages/AuthPage';
-import Home from './pages/Home';
-import { createContext } from 'react';
-import { PROFILE_DATA } from "./data";
-import CreateListing from './components/CreateListing';
-
-
-export const ProfileContext = createContext(null);
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AuthPage from "./pages/AuthPage";
+import ProfilePage from "./pages/ProfilePage";
+import { Provider } from "react-redux";
+import store from "./store";
+import BookingPage from "./pages/BookingPage";
+import EditBooking from "./pages/EditBooking";
 
 export default function App() {
-  return (  
-    <ProfileContext.Provider value={PROFILE_DATA}>
-    <div>
+  return (
+    <Provider store={store}>
       <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/register' element={<AuthPage />} />
-        <Route path='/login' element={<AuthPage />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/listing' element={<CreateListing />} />
-
-      </Routes>
-    </BrowserRouter>
-    </div>
-    </ProfileContext.Provider>
-
+        <Routes>
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/login" element={<AuthPage />} />
+          <Route path="*" element={<AuthPage />} />
+          <Route path="/booking" element={<BookingPage />} />
+          <Route path="/edit" element={<EditBooking />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
-

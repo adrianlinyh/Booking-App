@@ -1,107 +1,54 @@
-import { useContext, useEffect, useState } from "react";
-import { ProfileContext } from "../App";
-import { Button, Col, Form, Image, Modal, Row } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
-import { updatePost } from "../features/posts/postsSlice";
+// import { useContext, useState } from "react";
+// import { updatePost } from "../features/posts/postsSlice";
+// import { AuthContext } from "./AuthProvider";
+// import { useDispatch } from "react-redux";
+// import { Button, Form, Modal } from "react-bootstrap";
 
-function UpdatePostModal ({show, handleClose, postId}) {
-    const {image,name} = useContext(ProfileContext);
-    const dispatch = useDispatch();
+// export default function UpdatePostModal({
+//     show,
+//     handleClose,
+//     postId,
+//     originalPostContent,
+// }) {
+//     const [newPostContent, setNewPostContent] = useState(originalPostContent);
+//     const [newFile, setNewFile] = useState(null);
+//     const dispatch = useDispatch();
+//     const { currentUser } = useContext(AuthContext);
+//     const userId = currentUser.uid;
 
-    const post = useSelector((state) => 
-        state.posts.find((post) => post.id === postId)
-    );
+//     const handleUpdate = () => {
+//         dispatch(updatePost({ userId, postId, newPostContent, newFile }));
+//         handleClose();
+//         setNewPostContent(newPostContent);
+//         setNewFile(null);
+//     };
 
-    const [imageUrl, setImageUrl] = useState('');
-    const [description, setDescription] = useState('');
-    const [invalidUrl,setInvalidUrl] = useState(false);
+//     const handleNewFileChange = (e) => {
+//         setNewFile(e.target.files[0]);
+//     };
 
-    useEffect(() => {
-        if (post) {
-            setImageUrl(post.image);
-            setDescription(post.description);
-        }
-    }, [post]);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (imageUrl) {
-            dispatch(updatePost({ 
-                id: postId,
-                image: imageUrl,
-                description,
-            })
-        );
-            setImageUrl('');
-            setDescription('');
-            handleClose();
-        } else {
-            setInvalidUrl(true);
-        }
-    };
-
-    const handleImageError = () => {
-        setInvalidUrl(true);
-    };
-
-    const handleImageLoad = () => {
-        setInvalidUrl(false);
-    }
-
-    return (
-        <Modal show={show} onHide={handleClose} size='lg'>
-            <Modal.Header>
-                <Modal.Title>Create new post</Modal.Title>
-            </Modal.Header>
-                <Modal.Title>Edit Post</Modal.Title>
-            <Form onSubmit={handleSubmit}>
-                <Modal.Body>
-                    <Row>
-                        <Col sm={7} style={{margin: '0px'}}>
-                            <Image
-                                src={imageUrl ? imageUrl : 'https://sig1.co/img-placeholder-1'}
-                                alt='uploaded content'
-                                onError={handleImageError}
-                                onLoad={handleImageLoad}
-                                style={{ width: '100%' }}
-                            />
-                        </Col>
-                        <Col sm={5}>
-                            <Image
-                                src={image}
-                                alt= 'uploader'
-                                style={{ width : '32px' }}
-                                roundedCircle
-                            />
-                            <span className='ms-3'>{name}</span>
-                            <Form.Control
-                                value={imageUrl}
-                                onChange={(e) => setImageUrl(e.target.value)}
-                                className='my-3'
-                                placeholder='Add image URL'
-                            />
-                            {invalidUrl && (
-                                <div className='text-danger'>
-                                    Invalid URL or failed to load image
-                                </div>
-                            )}
-                            <Form.Control
-                                value={description}
-                                onChange={(e) => setDescription(e.target.value)}
-                                className='my-3'
-                                as='textarea'
-                                rows={3}
-                                placeholder='Write a caption'
-                            />
-                            <Button type='submit' style={{ width: '100%' }}>
-                                Share
-                            </Button>
-                        </Col>
-                    </Row>
-                </Modal.Body>
-            </Form>
-        </Modal>
-    );
-}
-
-export default UpdatePostModal;
+//     return (
+//         <>
+//         <Modal show={show} onHide={handleClose}>
+//             <Modal.Header closeButton></Modal.Header>
+//             <Modal.Body>
+//                 <Form>
+//                     <Form.Group controlId = 'postContent'>
+//                         <Form.Control
+//                         defaultValue={originalPostContent}
+//                         as='textarea'
+//                         rows={3}
+//                         onChange={(e) => setNewPostContent(e.target.value)}
+//                         />
+//                         <br />
+//                         <Form.Control type='file' onChange={handleNewFileChange} />
+//                     </Form.Group>
+//                 </Form>
+//             </Modal.Body>
+//             <Modal.Footer>
+//                 <Button variant='primary' className='rounded-pill' onClick={handleUpdate}>Update</Button>
+//             </Modal.Footer>
+//         </Modal>
+//         </>
+//     );
+// }
