@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { fetchPostsByUser } from "../features/posts/postsSlice";
 import { jwtDecode } from "jwt-decode";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 export default function ProfileMidBody(){
@@ -14,7 +15,7 @@ export default function ProfileMidBody(){
     const posts = useSelector((state) => state.posts.posts);
     const loading = useSelector((state) => state.posts.loading);    
     const url = 'https://media.istockphoto.com/id/1174844756/vector/a-man-stands-near-the-restaurant.jpg?s=612x612&w=0&k=20&c=2WDtUcb9mmcZzt5b0U5RIdCLdom4P2yC8RQL51_zhUc=';
-    
+    const navigate = useNavigate();
     
   
     
@@ -53,6 +54,10 @@ export default function ProfileMidBody(){
     //     }
     // }, []);
     
+    const handleNavigate = () => {
+      navigate('/edit');
+  };
+
     return(
         <Col sm={6} className='bg-light' style={{border: '1px solid lightgrey'}}>
             <Image src={url} fluid />
@@ -61,7 +66,7 @@ export default function ProfileMidBody(){
 
             <Row className = 'justify-content-end'>
                 <Col xs='auto'>
-                    <Button className='rounded-pill mt-2' variant='outline-secondary'>
+                    <Button className='rounded-pill mt-2' variant='outline-secondary' onClick={handleNavigate}>
                         Edit Bookings
                     </Button>
                 </Col>
