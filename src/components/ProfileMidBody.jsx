@@ -1,4 +1,4 @@
-import { Button, Col, Image, Row, Spinner } from "react-bootstrap";
+import { Button, Col, Image, Row } from "react-bootstrap";
 import ProfilePostCard from "./ProfilePostCard";
 // import { jwtDecode } from "jwt-decode";
 // import { useEffect } from "react";
@@ -86,17 +86,20 @@ export default function ProfileMidBody(){
                 <ProfilePostCard key={post.id} post = {post} />
 
             ))} */}
-             {loading && (
-        <Spinner animation="border" className="ms-3 mt-3" variant="primary" />
-      )}
-      {posts.map((post) => (
+             {loading ? (
+      <p>Loading...</p>
+    ) : posts.length > 0 ? (
+      posts.map(post => (
         <ProfilePostCard
           key={post.id}
           title={post.title}
           content={post.content}
           postId={post.id}
         />
-      ))}
+      ))
+    ) : (
+      <p>No posts found.</p>
+    )}
         </Col>
     )
 }
