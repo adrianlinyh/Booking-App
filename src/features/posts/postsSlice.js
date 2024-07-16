@@ -162,6 +162,33 @@ export const dateBooking = createAsyncThunk(
       )
 
 
+  export const updateBooking = createAsyncThunk(
+    'posts/updateBooking',
+    async ({ bookingId, newBookingDate, newBookingTime, newBookingDuration }) => {
+      console.log("bookingId:", bookingId );
+      console.log("date:", newBookingDate);
+      console.log("time:", newBookingTime);
+      console.log("duration:", newBookingDuration);
+  
+      const token = localStorage.getItem("authToken");
+      const decode = jwtDecode(token);
+      const userId = decode.id;
+  
+      const data = {
+        id: bookingId,
+        date: newBookingDate,
+        time: newBookingTime, 
+        duration: newBookingDuration,
+        user_id: userId,
+      };
+  
+      const response = await axios.put(`${BASE_URL}/bookings`, data);
+      return response.data;
+    }
+  )
+
+
+
 // Slice
 const postsSlice = createSlice({
   name: "posts",
@@ -195,6 +222,11 @@ const postsSlice = createSlice({
       builder.addCase(deleteBooking.fulfilled, (state, action) => {
         // Update state after successful deletion (if needed)
         state.posts = state.posts.filter(post => post.id !== action.payload);
+        state.loading = false;
+      }),
+      builder.addCase(updateBooking.fulfilled, (state, action) => {
+        // Update state after successful deletion (if needed)
+        state.posts = action.payload;
         state.loading = false;
       }),
       builder.addCase(fetchBookingsByUser.fulfilled, (state, action) => {

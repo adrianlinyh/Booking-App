@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import ProfileSideBar from "../components/ProfileSideBar";
 import ProfileMidBody from "../components/ProfileMidBody";
 import useLocalStorage from "use-local-storage";
+import Slides from "../components/Slides";
 
 export default function ProfilePage() {
   const [authToken, setAuthToken] = useLocalStorage("authToken", "");
@@ -21,9 +22,13 @@ export default function ProfilePage() {
   };
   return (
     <>
+    <div>
+      <Slides />
+    </div>
     <Container>
       <Row>
         <ProfileSideBar handleLogout={handleLogout} />
+
         <ProfileMidBody />
       </Row>
     </Container>
