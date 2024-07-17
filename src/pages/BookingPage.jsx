@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button, Container, Form, Modal } from "react-bootstrap";
+import { Badge, Button, Container, Form, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { saveBooking } from "../features/posts/postsSlice";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -44,8 +44,12 @@ export default function BookingPage() {
 
 
     return (
+        <div className="d-flex justify-content-center align-items-center vh-100">
+
         <Container>
-            <h2>Booking Form</h2>
+        <h1>
+        <Badge bg="dark">Booking Form</Badge>
+        </h1>
             <Form>
                 <Form.Group controlId='booking'>        
                     <Form.Control
@@ -54,6 +58,7 @@ export default function BookingPage() {
                     onChange={(e) => setBookingDate(e.target.value)}
 
                     />
+                    <br />
 
                     <Form.Control
                     type="time"
@@ -61,6 +66,7 @@ export default function BookingPage() {
                     onChange={(e) => setBookingTime(e.target.value)}
 
                     />
+                    <br />
 
                     <Form.Control
                     type="duration"
@@ -84,6 +90,8 @@ export default function BookingPage() {
                 </Modal.Footer>
             </Modal>
         </Container>
+        </div>
+
   );
 }
    

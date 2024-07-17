@@ -60,24 +60,24 @@ export default function AuthPage() {
             </Col>
             <Col sm={3} className='d-flex flex-column align-items-center justify-content-center'>
                 <Col sm={10} className='d-grid gap-2'>
-                    <Button className='rounded-pill' variant='outline-dark'>
+                    <Button className='rounded-pill' variant='light'>
                         <i className='bi bi-google'></i> Sign up with Google
                     </Button>
-                    <Button className='rounded-pill' variant='outline-dark'>
+                    <Button className='rounded-pill' variant='light'>
                         <i className='bi bi-apple'></i> Sign up with Apple
                     </Button>
-                    <Button className='rounded-pill' variant='outline-dark'>
+                    <Button className='rounded-pill' variant='light'>
                         <i className='bi bi-facebook'></i> Sign up with Facebook
                     </Button>
                     <p style= {{ textAlign: 'center' }}>or</p>
-                    <Button className='rounded-pill' onClick={handleShowSignUp}>
+                    <Button className='rounded-pill' variant='success' onClick={handleShowSignUp}>
                         Create an account
                     </Button>
                     
-                    <p className='mt-5' style= {{ fontWeight: 'bold' }}>
+                    <p className='mt-5 text-center fw-bold text-light' >
                         Already have an account?
                     </p>
-                    <Button className='rounded-pill' variant='outline-primary' onClick={handleShowLogin}>Sign In</Button>
+                    <Button className='rounded-pill' variant='success' onClick={handleShowLogin}>Sign In</Button>
                 </Col>
                 <Modal 
                 show={modalShow !== null}

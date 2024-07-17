@@ -29,7 +29,7 @@ export default function NewPostModal({show, handleClose}) {
                 <Form>
                     <Form.Group controlId='postContent'>
                         <Form.Control
-                            placeholder = 'What is happening?'
+                            placeholder = 'Restaurant Name'
                             as='textarea'
                             rows={3}
                             onChange={(e) => setPostContent(e.target.value)}
@@ -37,14 +37,14 @@ export default function NewPostModal({show, handleClose}) {
                         <br />
                         <Form.Control
                 type="text"
-                placeholder="Paste image URL here"
+                placeholder="Paste restaurant image URL here"
                 onChange={(e) => setImageUrl(e.target.value)}
                 />
                     </Form.Group>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant='primary' className='rounded-pill' onClick={handleSave}>Tweet</Button>
+                <Button variant='dark' className='rounded-pill' onClick={handleSave}>Submit</Button>
             </Modal.Footer>
         </Modal>
         </>

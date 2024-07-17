@@ -5,8 +5,7 @@ import { updateBooking } from "../features/posts/postsSlice";
 
 
 export default function UpdateBooking({show, handleClose, userId, bookingDate, bookingTime, bookingDuration, bookingId}) {
-        // const [newPostContent, setNewPostContent] = useState(originalPostContent);
-        // const [newFile, setNewFile] = useState(null);
+
         const dispatch = useDispatch();
 
         const [newBookingDate, setNewBookingDate] = useState(bookingDate || '');
@@ -15,8 +14,7 @@ export default function UpdateBooking({show, handleClose, userId, bookingDate, b
     
 
         const handleUpdate = () => {
-            dispatch(updateBooking({bookingId, newBookingDate, newBookingTime, newBookingDuration, userId, })); // arrange sequence
-            // setShowModal(false);
+            dispatch(updateBooking({bookingId, newBookingDate, newBookingTime, newBookingDuration, userId })); // arrange sequence
             setNewBookingDate(newBookingDate);
             setNewBookingTime(newBookingTime);
             setNewBookingDuration(newBookingDuration);

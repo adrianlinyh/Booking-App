@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 // import useLocalStorage from "use-local-storage";
-import ProfileSideBar from "../components/ProfileSideBar";
+// import ProfileSideBar from "../components/ProfileSideBar";
 import ProfileMidBody from "../components/ProfileMidBody";
 import useLocalStorage from "use-local-storage";
 import Slides from "../components/Slides";
@@ -27,9 +27,9 @@ export default function ProfilePage() {
     </div>
     <Container>
       <Row>
-        <ProfileSideBar handleLogout={handleLogout} />
+        {/* <ProfileSideBar handleLogout={handleLogout} /> */}
 
-        <ProfileMidBody />
+        <ProfileMidBody handleLogout={handleLogout} />
       </Row>
     </Container>
       {/* <Navbar bg="light">

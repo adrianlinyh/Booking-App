@@ -1,30 +1,24 @@
-import { Button, Col } from "react-bootstrap";
-import IconButton from "./IconButton";
-import NewPostModal from "./NewPostModal";
-import { useState } from "react";
-// import ChatbotModal from "./ChatbotModal";
+// import { Button, Navbar } from "react-bootstrap";
+// // import IconButton from "./IconButton";
+// import NewPostModal from "./NewPostModal";
+// import { useState } from "react";
+// import '../styles/midbody.scss'; 
 
-export default function ProfileSideBar({ handleLogout }) {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+// export default function ProfileSideBar({ handleLogout }) {
+//     const [show, setShow] = useState(false);
+//     const handleClose = () => setShow(false);
+//     const handleShow = () => setShow(true);
 
-    return (
-        <Col
-        sm = {2}
-        className='d-flex flex-column justify-content-start align-items-start bg-light vh-100'
-        style={{ position: 'sticky', top: 0 }}
-        >
-            <IconButton className='bi bi-home' isTop />
-            {/* <IconButton className='bi bi-chat-square-text' text='Chatbot' onClick={handleShowChatbot} /> */}
-            <IconButton className='bi bi-door-closed' text='Logout' onClick={handleLogout} />
-            <br />
-            <Button className='rounded-pill w-100 mb-3' onClick={handleShow}>
-                Suggest a restaurant!
-            </Button>
+//     return (
+//         <Navbar expand="lg">
 
-            <NewPostModal show={show} handleClose={handleClose} />
-            {/* <ChatbotModal show={showChatbot} handleClose={handleCloseChatbot} /> */}
-        </Col>
-    );
-}
+//             <Button className='bi bi-door-closed' variant='dark' text='Logout' onClick={handleLogout} />
+//             <br />
+//             <Button className='rounded-pill' variant="dark" onClick={handleShow}>
+//                 Add your restaurant!
+//             </Button>
+
+//             <NewPostModal show={show} handleClose={handleClose} />
+//             </Navbar>
+//     );
+// }

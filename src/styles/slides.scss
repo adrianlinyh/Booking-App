@@ -1,6 +1,6 @@
 .slide {
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url("../assets/slides3.jpg");
     background-position: center top;
@@ -12,4 +12,10 @@
       text-align: center;
       color: white;
     }
+  }
+
+  .coin-image {
+    max-width: 100px; /* Adjust as needed */
+    max-height: 300px; /* Adjust as needed */
+    border-radius: 20%; /* Optional: Make the image circular */
   }

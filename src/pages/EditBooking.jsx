@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { jwtDecode } from 'jwt-decode';
 import { deleteBooking, fetchBookingsByUser } from '../features/posts/postsSlice';
-import { Button } from 'react-bootstrap';
+import { Badge, Button, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import UpdateBooking from '../components/UpdateBooking';
 
@@ -40,22 +40,24 @@ export default function EditBooking() {
   }
 
   return (
-    <div>
-      <h1>Edit Bookings</h1>
+    <Container className="mt-5" style={{ backgroundColor: 'white', padding: '20px' }}>
+      <h1 className="text-center">
+        <Badge bg="dark">Edit Booking</Badge>
+      </h1>
 
-      <div>
+      <div className="text-center">
         {bookings.length > 0 ? (
           bookings.map(booking => (
             <div key={booking.id}>
               <p>Date: {booking.date}</p>
               <p>Time: {booking.time}</p>
               <p>Duration: {booking.duration} hours</p>
-              <Button onClick={handleShow}>Change</Button>
+              <Button variant="warning" onClick={handleShow}>Change</Button>
               <UpdateBooking show={show} handleClose={handleClose} />
               <UpdateBooking 
               bookingId={selectedBookingId}/>
 
-              <Button onClick={() => handleDelete(booking.id)}>Delete</Button>
+              <Button variant="danger" onClick={() => handleDelete(booking.id)}>Delete</Button>
                             <hr />
             </div>
           ))
@@ -64,9 +66,11 @@ export default function EditBooking() {
         )}
       </div>
 
-      
-      <Button onClick={handleNavigate}>Home</Button>
-    </div>
+      <div className="d-flex justify-content-end">
+      <Button variant="dark" onClick={handleNavigate}>Home</Button>
+      </div>
+
+      </Container>
     
   );
 }
