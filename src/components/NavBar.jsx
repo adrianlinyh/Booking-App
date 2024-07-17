@@ -1,57 +1,35 @@
-import { Button, Col, Container, Nav, Navbar } from "react-bootstrap";
-import useLocalStorage from "use-local-storage";
-import IconButton from "../components/IconButton";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import CreateListing from "./CreateListing";
+// import { Button, Col } from "react-bootstrap";
+// import IconButton from "./IconButton";
+// import NewPostModal from "./NewPostModal";
+// import { useState } from "react";
 
-export default function NavBar() {
-    const [authToken, setAuthToken] = useLocalStorage('authToken', '');
-    const navigate = useNavigate();
-    const [showModal,setShowModal] = useState(false);
-    const closeModal = () => setShowModal(false);
-   
-    const openModal = () => setShowModal(true);
-    
- // check for auth token immediately upon mount and when authToken changes
- useEffect(() => {
-    if (!authToken) {
-        navigate('/login');
-    }
-}, [authToken, navigate]);
+// export default function NavBar({ handleLogout }) {
+//     const [show, setShow] = useState(false);
+//     const handleClose = () => setShow(false);
+//     const handleShow = () => setShow(true);
 
+//     return (
+//         <Col
+//         sm = {2}
+//         className='d-flex flex-column justify-content-start align-items-start bg-light vh-100'
+//         style={{ position: 'sticky', top: 0 }}
+//         >
+//             <IconButton className='bi bi-twitter' isTop />
+//             <IconButton className='bi bi-house' text='Home' />
+//             <IconButton className='bi bi-search' text='Explore' />
+//             <IconButton className='bi bi-bell' text='Notifications' />
+//             <IconButton className='bi bi-envelope' text='Messages' />
+//             <IconButton className='bi bi-journal-text' text='Lists' />
+//             <IconButton className='bi bi-bookmark' text='Bookmarks' />
+//             <IconButton className='bi bi-patch-check' text='Verified' />
+//             <IconButton className='bi bi-person' text='Profile' />
+//             <IconButton className='bi bi-door-closed' text='Logout' onClick={handleLogout} />
+//             <br />
+//             <Button className='rounded-pill w-100 mb-3' onClick={handleShow}>
+//                 Tweet
+//             </Button>
 
-    const handleLogout = () => {
-        
-        setAuthToken(''); // clear token from storage
-    };
-
-    return (
-
-<Navbar expand="lg" className="bg-body-tertiary">
-    <Container>
-
-          <Navbar.Brand href="/">
-          <IconButton className='bi bi-house-door-fill' />
-          </Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="/listing">Host your own!</Nav.Link>
-            <Button style={{ backgroundColor: '#ea80fc', borderColor: '#ea80fc', color: '#512da8' }} onClick={openModal}>
-            Host your own!  <i className="bi bi-cash-coin"></i>
-            </Button>
-            <Col className="d-flex justify-content-end align-items-center">
-            <Button
-              style={{ backgroundColor: '#ea80fc', borderColor: '#ea80fc', color: '#512da8' }}
-              onClick={handleLogout}
-            >
-              <i className="bi bi-escape"></i>
-            </Button>
-            <CreateListing show={showModal} handleClose={closeModal} />
-          </Col>
-          </Nav>
-          </Container>
-      </Navbar>
-      
-    )
-}
+//             <NewPostModal show={show} handleClose={handleClose} />
+//         </Col>
+//     );
+// }
