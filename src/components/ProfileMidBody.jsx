@@ -84,6 +84,7 @@ export default function ProfileMidBody({handleLogout}){
                     </div>
 
 <Container>
+  
              {loading ? (
       <p>Loading...</p>
     ) : posts.length > 0 ? (
@@ -98,6 +99,7 @@ export default function ProfileMidBody({handleLogout}){
     ) : (
       <p>No posts found.</p>
     )}
+
     </Container>
         </Row>
     )

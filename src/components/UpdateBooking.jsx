@@ -32,49 +32,50 @@ export default function UpdateBooking({show, handleClose, userId, bookingDate, b
         //   };
     
         return (
-            <>
+          <>
            <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Edit Booking</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form>
-            <Form.Group controlId="bookingDate">
-              <Form.Label>Date</Form.Label>
-              <Form.Control
-                type="date"
-                value={newBookingDate}
-                onChange={(e) => setNewBookingDate(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="bookingTime">
-              <Form.Label>Time</Form.Label>
-              <Form.Control
-                type="time"
-                value={newBookingTime}
-                onChange={(e) => setNewBookingTime(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlId="bookingDuration">
-              <Form.Label>Duration (hours)</Form.Label>
-              <Form.Control
-                type="number"
-                value={newBookingDuration}
-                onChange={(e) => setNewBookingDuration(e.target.value)}
-              />
-            </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleUpdate}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
-            </>
+            <Modal.Header closeButton>
+            <Modal.Title>Edit Booking</Modal.Title>
+            </Modal.Header>
+           
+            <Modal.Body>
+              <Form>
+                <Form.Group controlId="bookingDate">
+                <Form.Label>Date</Form.Label>
+                <Form.Control
+                  type="date"
+                  value={newBookingDate}
+                  onChange={(e) => setNewBookingDate(e.target.value)}
+                />
+                </Form.Group>
+                <Form.Group controlId="bookingTime">
+                  <Form.Label>Time</Form.Label>
+                  <Form.Control
+                    type="time"
+                    value={newBookingTime}
+                    onChange={(e) => setNewBookingTime(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group controlId="bookingDuration">
+                  <Form.Label>Duration (hours)</Form.Label>
+                  <Form.Control
+                    type="number"
+                    value={newBookingDuration}
+                    onChange={(e) => setNewBookingDuration(e.target.value)}
+                  />
+                </Form.Group>
+              </Form>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleUpdate}>
+                Save Changes
+              </Button>
+            </Modal.Footer>
+          </Modal>
+          </>
         );
     }
     

@@ -182,7 +182,7 @@ export const dateBooking = createAsyncThunk(
         user_id: userId,
       };
   
-      const response = await axios.put(`${BASE_URL}/bookings`, data);
+      const response = await axios.put(`${BASE_URL}/bookings/${userId}`, data);
       return response.data;
     }
   )
@@ -238,3 +238,8 @@ const postsSlice = createSlice({
 });
 
 export default postsSlice.reducer;
+
+
+
+
+

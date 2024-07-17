@@ -28,23 +28,9 @@ export default function ProfilePostCard({title, content, postId}) {
     const handleNavigation = () => {
         navigate(`/booking?postId=${postId}`);
     };
-
-    // const [showUpdateModal, setShowUpdateModal] = useState(false);
-
-    // const handleShowUpdateModal = () => setShowUpdateModal(true);
-    // const handleCloseUpdateModal = () => setShowUpdateModal(false);
-
-    
-
-      // const isLiked = likes.some((like) => like.user_id === userId);
-
-        // const handleLike = () => (isLiked ? removeFromLikes() : addToLikes());
   
     return(
         <Row className='p-5'>
-            {/* <Col sm={2}>
-                <Image src={pic} fluid roundedCircle />
-            </Col> */}
 
             <Col>
             <div className='d-flex justify-content-center'>
@@ -56,31 +42,26 @@ export default function ProfilePostCard({title, content, postId}) {
                     overflow: 'hidden',
                     whiteSpace: 'nowrap',
                     fontFamily: 'Georgia, serif',
-                }}>
-            {title}
-            </Badge>
+                    }}>
+                {title}
+                </Badge>
             </div>
 
             <div className='d-flex justify-content-center'>
                 <Image src = {content} fluid />
-                </div>
+            </div>
 
-                <div className = 'd-flex justify-content-center me-2'>
+            <div className = 'd-flex justify-content-center me-2'>
                 <Button variant="dark">
-                <i className='bi bi-bookmark-plus-fill' onClick={handleNavigation}></i>   
-            </Button>
-
-                <Button variant="dark" onClick={handleDelete}>
-                <i className="bi bi-x-lg"></i>                
+                    <i className='bi bi-bookmark-plus-fill' onClick={handleNavigation}></i>   
                 </Button>
 
-                    {/* <Button variant= 'light'>
-                        <i className ='bi bi-pencil-square' onClick={handleShowUpdateModal}></i>
-                    </Button> */}
-                    {/* <UpdatePostModal show={showUpdateModal} handleClose={handleCloseUpdateModal} postId={postId} originalPostContent={content} /> */}
-                </div>
-            </Col>
-        </Row>
+                <Button variant="dark" onClick={handleDelete}>
+                    <i className="bi bi-x-lg"></i>                
+                </Button>
+            </div>
+        </Col>
+    </Row>
         
     )
 }

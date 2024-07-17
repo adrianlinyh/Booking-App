@@ -11,11 +11,10 @@ export default function EditBooking() {
   const bookings = useSelector(state => state.posts.posts); // Adjust according to your state structure
   const loading = useSelector(state => state.posts.loading); // Loading state to handle loading indication
   const navigate = useNavigate();
-  const [selectedBookingId, setSelectedBookingId] = useState(null); 
 
   const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = (bookingId) => {setShow(true); setSelectedBookingId(bookingId)}
+    const handleShow = () => setShow(true)
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
@@ -53,10 +52,7 @@ export default function EditBooking() {
               <p>Time: {booking.time}</p>
               <p>Duration: {booking.duration} hours</p>
               <Button variant="warning" onClick={handleShow}>Change</Button>
-              <UpdateBooking show={show} handleClose={handleClose} />
-              <UpdateBooking 
-              bookingId={selectedBookingId}/>
-
+              <UpdateBooking show={show} handleClose={handleClose} bookingId={booking.id}/> 
               <Button variant="danger" onClick={() => handleDelete(booking.id)}>Delete</Button>
                             <hr />
             </div>
