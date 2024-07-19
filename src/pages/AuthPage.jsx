@@ -32,7 +32,7 @@ export default function AuthPage() {
     const handleSignUp = async (e) => {
         e.preventDefault();
         try {
-          const res = await axios.post(`${url}/login`, { username, password });
+          const res = await axios.post(`${url}/signup`, { username, password });
           console.log(res.data);
         } catch (error) {
           console.error(error);
