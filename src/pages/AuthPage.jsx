@@ -56,7 +56,7 @@ export default function AuthPage() {
     return (
         <Row>
             <Col sm={6}>
-                <Image src={loginImage} fluid />
+                <Image src={loginImage} fluid style={{ height: '130%', objectFit: 'cover' }} />
             </Col>
             <Col sm={3} className='d-flex flex-column align-items-center justify-content-center'>
                 <Col sm={10} className='d-grid gap-2'>
