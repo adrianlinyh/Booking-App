@@ -1,6 +1,6 @@
 import { Badge, Button, Col, Image, Row } from "react-bootstrap";
-import { useDispatch } from "react-redux";
-import { deletePost } from "../features/posts/postsSlice";
+// import { useDispatch } from "react-redux";
+// import { deletePost } from "../features/posts/postsSlice";
 import { useNavigate } from "react-router-dom";
 import '../styles/midbody.scss'; 
 
@@ -14,14 +14,14 @@ export default function ProfilePostCard({title, content, postId}) {
     // const pic='https://media.istockphoto.com/id/1201462385/vector/abstract-modern-speech-bubble-new-label.jpg?s=612x612&w=0&k=20&c=NkqNBBda-73QvqWCgi5RcifHNgLt7lb5HaDC4FbZ5sw=';
     // const BASE_URL = "https://968839a5-972f-4c1f-b3a5-90e2d906c8a5-00-1hcl0jmqumd5n.sisko.replit.dev:3000";
 
-  const dispatch = useDispatch();
+//   const dispatch = useDispatch();
 
 
 
 
-    const handleDelete = () => {
-      dispatch(deletePost(postId)); // Dispatch deletePost action with postId
-    };
+    // const handleDelete = () => {
+    //   dispatch(deletePost(postId)); // Dispatch deletePost action with postId
+    // };
     
     const navigate = useNavigate();
 
@@ -56,9 +56,9 @@ export default function ProfilePostCard({title, content, postId}) {
                     <i className='bi bi-bookmark-plus-fill' onClick={handleNavigation}></i>   
                 </Button>
 
-                <Button variant="dark" onClick={handleDelete}>
+                {/* <Button variant="dark" onClick={handleDelete}>
                     <i className="bi bi-x-lg"></i>                
-                </Button>
+                </Button> */}
             </div>
         </Col>
     </Row>
