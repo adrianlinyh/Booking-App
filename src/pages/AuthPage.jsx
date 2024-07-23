@@ -17,7 +17,6 @@ export default function AuthPage() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [authToken, setAuthToken] = useLocalStorage("authToken", "");
-
     const navigate = useNavigate();
 
     // const auth = getAuth();
@@ -44,7 +43,7 @@ export default function AuthPage() {
         try {
           const res = await axios.post(`${url}/login`, { username, password });
           if (res.data && res.data.auth === true && res.data.token) {
-            setAuthToken(res.data.token); // Save token to localStorage.
+            setAuthToken(res.data.token);
             console.log("Login was successful, token saved");
           }
         } catch (error) {

@@ -8,8 +8,8 @@ import UpdateBooking from '../components/UpdateBooking';
 
 export default function EditBooking() {
   const dispatch = useDispatch();
-  const bookings = useSelector(state => state.posts.posts); // Adjust according to your state structure
-  const loading = useSelector(state => state.posts.loading); // Loading state to handle loading indication
+  const bookings = useSelector(state => state.posts.posts);
+  const loading = useSelector(state => state.posts.loading);
   const navigate = useNavigate();
 
   const [show, setShow] = useState(false);
@@ -21,7 +21,7 @@ export default function EditBooking() {
     const decodedToken = jwtDecode(token);
     const userId = decodedToken.id;
 
-    dispatch(fetchBookingsByUser(userId)); // Fetch bookings data when component mounts
+    dispatch(fetchBookingsByUser(userId)); 
   }, [dispatch, bookings]
 );
 

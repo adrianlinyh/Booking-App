@@ -6,7 +6,6 @@ import { jwtDecode } from "jwt-decode";
 const BASE_URL =
   "https://968839a5-972f-4c1f-b3a5-90e2d906c8a5-00-1hcl0jmqumd5n.sisko.replit.dev:3000";
 
-// Async thunk for fetching a user's posts
 export const fetchPostsByUser = createAsyncThunk(
   "posts/fetchByUser",
   async (userId) => {
@@ -21,7 +20,7 @@ export const deletePost = createAsyncThunk(
     
       await axios.delete(`${BASE_URL}/posts/${postId}`);
 
-        return postId; // Return postId if deletion was successful
+        return postId; 
       } 
     )
 
@@ -157,7 +156,7 @@ export const dateBooking = createAsyncThunk(
       
         await axios.delete(`${BASE_URL}/bookings/${bookingId}`);
   
-          return bookingId; // Return postId if deletion was successful
+          return bookingId; 
         } 
       )
 
@@ -189,10 +188,9 @@ export const dateBooking = createAsyncThunk(
 
 
 
-// Slice
 const postsSlice = createSlice({
   name: "posts",
-  initialState: { posts: [],  bookings: [],    // For booking data
+  initialState: { posts: [],  bookings: [],  
     loading: true },
   reducers: {},
   extraReducers: (builder) => {
@@ -215,17 +213,14 @@ const postsSlice = createSlice({
         state.loading = false;
       }),
       builder.addCase(deletePost.fulfilled, (state, action) => {
-        // Update state after successful deletion (if needed)
         state.posts = state.posts.filter(post => post.id !== action.payload);
         state.loading = false;
       }),
       builder.addCase(deleteBooking.fulfilled, (state, action) => {
-        // Update state after successful deletion (if needed)
         state.posts = state.posts.filter(post => post.id !== action.payload);
         state.loading = false;
       }),
       builder.addCase(updateBooking.fulfilled, (state, action) => {
-        // Update state after successful deletion (if needed)
         state.posts = action.payload;
         state.loading = false;
       }),

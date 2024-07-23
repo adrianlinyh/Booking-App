@@ -20,16 +20,6 @@ export default function UpdateBooking({show, handleClose, userId, bookingDate, b
             setNewBookingDuration(newBookingDuration);
             handleClose();
           };
-
-
-    
-    
-        // const handleShowModal = (booking) => {
-        //     setBookingDate(booking.date);
-        //     setBookingTime(booking.time);
-        //     setBookingDuration(booking.duration);
-        //     // setShowModal(true);
-        //   };
     
         return (
           <>

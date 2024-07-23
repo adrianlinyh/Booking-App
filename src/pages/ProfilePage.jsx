@@ -13,12 +13,12 @@ export default function ProfilePage() {
 
    useEffect(() => {
     if (!authToken) {
-      navigate("/login"); // Redirect to login if no auth token is present
+      navigate("/login");
     }
   }, [authToken, navigate]);
 
   const handleLogout = () => {
-    setAuthToken(""); // Clear token from localStorage
+    setAuthToken("");
   };
   return (
     <>
@@ -27,30 +27,10 @@ export default function ProfilePage() {
     </div>
     <Container>
       <Row>
-        {/* <ProfileSideBar handleLogout={handleLogout} /> */}
 
         <ProfileMidBody handleLogout={handleLogout} />
       </Row>
     </Container>
-      {/* <Navbar bg="light">
-        <Container>
-          <Navbar.Brand href="/">
-            <i
-              className="bi bi-twitter"
-              style={{ fontSize: 30, color: "dodgerblue" }}
-            ></i>
-          </Navbar.Brand>
-          <Navbar.Collapse className="justify-content-end">
-            <Button variant="primary" onClick={handleLogout}>
-              Logout
-            </Button>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
-      <Container className="mt-3">
-        <h2>Your profile</h2>
-      </Container> */}
     </>
   );
 }

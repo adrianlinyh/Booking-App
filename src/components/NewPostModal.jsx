@@ -1,5 +1,3 @@
-// import axios from "axios";
-// import { jwtDecode } from "jwt-decode";
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { savePost } from "../features/posts/postsSlice";
@@ -10,9 +8,7 @@ export default function NewPostModal({show, handleClose}) {
  
     const [postContent, setPostContent] = useState('');
      const dispatch = useDispatch();
-     const [imageUrl, setImageUrl] = useState(''); // State to store image URL
-
-
+     const [imageUrl, setImageUrl] = useState(''); 
 
      const handleSave = () => {
         dispatch(savePost( {postContent, imageUrl }));
@@ -36,10 +32,10 @@ export default function NewPostModal({show, handleClose}) {
                         />
                         <br />
                         <Form.Control
-                type="text"
-                placeholder="Paste restaurant image URL here"
-                onChange={(e) => setImageUrl(e.target.value)}
-                />
+                        type="text"
+                        placeholder="Paste restaurant image URL here"
+                        onChange={(e) => setImageUrl(e.target.value)}
+                        />
                     </Form.Group>
                 </Form>
             </Modal.Body>

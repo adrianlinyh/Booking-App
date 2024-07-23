@@ -13,9 +13,9 @@ export default function BookingPage() {
     const [bookingTime, setBookingTime] = useState(''); 
     const [bookingDuration, setBookingDuration] = useState(''); 
     const location = useLocation();
-    const [postId, setPostId] = useState(null); // Initialize postId state
+    const [postId, setPostId] = useState(null);
     const navigate = useNavigate();
-    const [showModal, setShowModal] = useState(false); // State for modal visibility
+    const [showModal, setShowModal] = useState(false); 
 
 
     useEffect(() => {
@@ -34,12 +34,12 @@ export default function BookingPage() {
         setBookingTime('');
         setBookingTime('');
         setBookingDuration('');
-        setShowModal(true); // Show modal on form submit
+        setShowModal(true); 
       };
 
       const handleCloseModal = () => {
         setShowModal(false);
-        navigate('/profile'); // Redirect to home page
+        navigate('/profile'); 
     };
 
 
