@@ -3,8 +3,8 @@ import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
 
-const BASE_URL =
-  "https://968839a5-972f-4c1f-b3a5-90e2d906c8a5-00-1hcl0jmqumd5n.sisko.replit.dev:3000";
+const BASE_URL=import.meta.env.VITE_BASE_URL
+
 
 export const fetchPostsByUser = createAsyncThunk(
   "posts/fetchByUser",
